@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION['email'])) {
   echo "<script>alert('Please log in to access your dashboard.'); window.location.href='login.php';</script>";
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -14,94 +15,66 @@ if (!isset($_SESSION['email'])) {
   </head>
   <body class="bg-gray-50 min-h-screen flex font-sans">
     <!-- Sidebar -->
-    <aside
-      class="bg-blue-700 text-white w-64 flex flex-col justify-between p-6"
-    >
+    <aside class="bg-blue-700 text-white w-64 flex flex-col justify-between p-6">
       <div>
         <h1 class="text-2xl font-bold mb-10 text-center">FeedUs</h1>
 
         <nav class="space-y-4">
-          <a
-            href="#"
-            class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition"
-          >
-            🗣️ <span>Share Opinion</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition"
-          >
-            📜 <span>Review</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition"
-          >
-            ⚙️ <span>Settings</span>
-          </a>
+          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🗣️ <span>Share Opinion</span></a>
+          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">📜 <span>Review</span></a>
+          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
         </nav>
       </div>
 
       <div>
-        <a
-          href="logout.php"
-          class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition"
-        >
-          🚪 <span>Logout</span>
-        </a>
+        <a href="logout.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🚪 <span>Logout</span></a>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-8 md:p-12 ">
+    <main class="flex-1 p-8 md:p-12">
       <h2 class="text-3xl font-bold text-blue-700 mb-6">Share Your Feedback</h2>
 
-      <form
-        action="submit_feedback.php"
-        method="POST"
-        class="bg-white p-6 rounded-2xl shadow-md max-w-2xl"
-      >
-        <!-- Category -->
+      <form method="POST" class="bg-white p-6 rounded-2xl shadow-md max-w-2xl">
+        <?php include '../db_connection/conn.php'; ?>
+
+        <!-- Category Dropdown -->
         <div class="mb-4">
           <label class="block text-gray-700 font-medium mb-1">Category</label>
-          <select
-            name="category"
-            required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
+          <select id="category" name="category" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">Select Category</option>
-            <option value="Telecom">Telecom</option>
-            <option value="Banking">Banking</option>
-            <option value="Healthcare">Healthcare</option>
-            <option value="Government">Government</option>
-            <option value="Food & Beverage">Food & Beverage</option>
+            <?php
+            $selectCategories = "SELECT DISTINCT(category_name) FROM categories";
+            $result = $conn->query($selectCategories);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . htmlspecialchars($row['category_name']) . '">' . htmlspecialchars($row['category_name']) . '</option>';
+                }
+            }
+            ?>
           </select>
         </div>
 
-        <!-- Service -->
+        <!-- Service Dropdown -->
         <div class="mb-4">
           <label class="block text-gray-700 font-medium mb-1">Service</label>
-          <select
-            name="service"
-            required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">Select Service</option>
-            <option value="MTN Mobile Money">MTN Mobile Money</option>
-            <option value="BK Online Banking">BK Online Banking</option>
-            <option value="King Faisal Appointment">
-              King Faisal Appointment
-            </option>
-            <option value="IremboGov Services">IremboGov Services</option>
-            <option value="Inyange Delivery">Inyange Delivery</option>
+          <select id="service" name="service" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select category first</option>
           </select>
+
+          <!-- Loading spinner -->
+          <div id="loading" class="hidden text-blue-600 text-sm mt-2 flex items-center gap-2">
+            <svg class="animate-spin h-5 w-5 text-blue-600" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"></path>
+            </svg>
+            Loading services...
+          </div>
         </div>
 
         <!-- Description -->
         <div class="mb-4">
-          <label class="block text-gray-700 font-medium mb-1"
-            >Description</label
-          >
+          <label class="block text-gray-700 font-medium mb-1">Description</label>
           <textarea
             name="description"
             maxlength="200"
@@ -122,5 +95,39 @@ if (!isset($_SESSION['email'])) {
         </button>
       </form>
     </main>
+
+    <!-- JavaScript for AJAX -->
+    <script>
+      document.getElementById('category').addEventListener('change', function() {
+        const category = this.value;
+        const serviceDropdown = document.getElementById('service');
+        const loadingIndicator = document.getElementById('loading');
+
+        if (!category) {
+          serviceDropdown.innerHTML = '<option value="">Select category first</option>';
+          return;
+        }
+
+        serviceDropdown.innerHTML = '<option value="">Loading...</option>';
+        loadingIndicator.classList.remove('hidden');
+
+        fetch('get_services.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'category=' + encodeURIComponent(category)
+        })
+        .then(response => response.text())
+        .then(data => {
+          serviceDropdown.innerHTML = data || '<option value="">No services found</option>';
+        })
+        .catch(error => {
+          serviceDropdown.innerHTML = '<option value="">Error loading services</option>';
+          console.error('Error:', error);
+        })
+        .finally(() => {
+          loadingIndicator.classList.add('hidden');
+        });
+      });
+    </script>
   </body>
 </html>
