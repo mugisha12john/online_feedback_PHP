@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FeedUs | Sign Up</title>
+    <title>FeedUs | Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
@@ -32,33 +32,10 @@
 
       <!-- Form -->
       <h2 class="text-2xl font-bold text-center text-blue-700 mt-8 mb-6">
-        Create Account
+        Welcome Back! Please Login to give your Opinion
       </h2>
 
       <form action="register.php" method="POST" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >First Name</label
-          >
-          <input
-            type="text"
-            name="firstname"
-            required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >Last Name</label
-          >
-          <input
-            type="text"
-            name="lastname"
-            required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
         <div>
           <label class="block text-sm font-medium text-gray-700">Email</label>
           <input
@@ -80,30 +57,27 @@
           />
         </div>
 
-        <div>
-          <label class="block text-sm font-medium text-gray-700"
-            >Confirm Password</label
-          >
-          <input
-            type="password"
-            name="confirm_password"
-            required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
         <button
           type="submit"
           class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
         >
-          Sign Up
+          Login
         </button>
       </form>
 
       <p class="text-center text-gray-600 text-sm mt-4">
-        Already have an account?
-        <a href="login.php" class="text-blue-600 font-medium hover:underline">
-          Login
+        Don't have an account?
+        <a href="signup.php" class="text-blue-600 font-medium hover:underline">
+          Sign in
+        </a>
+      </p>
+      <p class="text-center text-gray-600 text-sm mt-4">
+        Forgot your password?
+        <a
+          href="reset_password.php"
+          class="text-blue-600 font-medium hover:underline"
+        >
+          Reset here
         </a>
       </p>
     </div>

@@ -22,13 +22,13 @@
       <!-- Right: Buttons -->
       <div class="space-x-4">
         <a
-          href="signup.html"
+          href="login.php"
           class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
         >
           Login
         </a>
         <a
-          href="login.html"
+          href="signup.php"
           class="border border-blue-600 text-blue-600 px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white transition"
         >
           Sign Up
