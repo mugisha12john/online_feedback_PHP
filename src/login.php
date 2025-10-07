@@ -35,7 +35,7 @@
         Welcome Back! Please Login to give your Opinion
       </h2>
 
-      <form action="register.php" method="POST" class="space-y-4">
+      <form  method="POST" class="space-y-4">
         <div>
           <label class="block text-sm font-medium text-gray-700">Email</label>
           <input
@@ -83,3 +83,26 @@
     </div>
   </body>
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include '../db_connection/conn.php';
+  
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user['password'])) {
+            echo "<script>alert('Login successful!'); window.location.href='user_home.php';</script>";
+        } else {
+            echo "<script>alert('Invalid password. Please try again.');</script>";
+        }
+    } else {
+        echo "<script>alert('No user found with this email.');</script>";
+    }
+
+    $conn->close();
+}
+?>

@@ -111,33 +111,31 @@
 </html>
 <?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include database connection
     include '../db_connection/conn.php';
-    // Get form data and sanitize inputs
-    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    $firstname =  $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email =$_POST['email'];
+    $password =$_POST['password'];
+    $confirm_password =$_POST['confirm_password'];
     if ($password !== $confirm_password) {
         echo "<script>alert('Passwords do not match. Please try again.');</script>";
     } else {
         // Check if email already exists
         $checkQuery = "SELECT * FROM users WHERE email='$email'";
-        $result = mysqli_query($conn, $checkQuery);
+        $result = $conn->query( $checkQuery);
 
-        if (mysqli_num_rows($result) > 0) {
+        if ($result->num_rows > 0) {
             echo "<script>alert('Email already registered. Please use a different email.');</script>";
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $insertQuery = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$hashedPassword')";
-            if (mysqli_query($conn, $insertQuery)) {
+            if ($conn->query( $insertQuery)) {
                 echo "<script>alert('Registration successful! You can now log in.'); window.location.href='login.php';</script>";
             } else {
-                echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+                echo "<script>alert('Error: " . $conn->error . "');</script>";
             }
         }
     }
-    mysqli_close($conn);
+    $conn->close();
 }
 ?>
