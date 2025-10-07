@@ -86,7 +86,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../db_connection/conn.php';
-  
+    session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
     
@@ -95,6 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
+            $_SESSION['email'] = $email;
+            $_SESSION['password'] = $password;
             echo "<script>alert('Login successful!'); window.location.href='user_home.php';</script>";
         } else {
             echo "<script>alert('Invalid password. Please try again.');</script>";

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+  echo "<script>alert('Please log in to access your dashboard.'); window.location.href='login.php';</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

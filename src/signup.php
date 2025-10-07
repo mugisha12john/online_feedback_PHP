@@ -130,6 +130,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $insertQuery = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$hashedPassword')";
             if ($conn->query( $insertQuery)) {
+   
+
                 echo "<script>alert('Registration successful! You can now log in.'); window.location.href='login.php';</script>";
             } else {
                 echo "<script>alert('Error: " . $conn->error . "');</script>";
