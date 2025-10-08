@@ -89,6 +89,7 @@ if (!isset($_SESSION['email'])) {
         <!-- Button -->
         <button
           type="submit"
+          name="submit_feedback"
           class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
         >
           Send Feedback
@@ -131,3 +132,24 @@ if (!isset($_SESSION['email'])) {
     </script>
   </body>
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_feedback'])) {
+    include '../db_connection/conn.php';
+    $email = $_SESSION['email'];
+    $category = $_POST['category'];
+    $service = $_POST['service'];
+    $description = $_POST['description'];
+   
+    $userResult = $conn->query("SELECT CONCAT(firstname,' ',lastname) as name FROM users WHERE email='$email'");
+
+    $user_Fname = $userResult->fetch_assoc()['name'];
+ 
+    $insertFeedback =$conn->query("INSERT INTO feedback_users(name, email, service_id, description) VALUES('$user_Fname', '$email', '$service', '$description')");
+    if ($insertFeedback) {
+        echo "<script>alert('Feedback submitted successfully! Thank you for your input.'); window.location.href='user_home.php';</script>";
+    } else {
+        echo "<script>alert('Error submitting feedback. Please try again later.');</script>";
+    }
+  
+    $conn->close();
+}

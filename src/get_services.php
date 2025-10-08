@@ -10,12 +10,12 @@ if (!empty($category)) {
         $category_id = $cat_row['c_id'];
 
         // Get services linked to that category
-        $service_query = $conn->query("SELECT service_name FROM services WHERE category_id=$category_id");
+        $service_query = $conn->query("SELECT * FROM services WHERE category_id=$category_id");
 
         if ($service_query && $service_query->num_rows > 0) {
             echo '<option value="">Select Service</option>';
             while ($srv = $service_query->fetch_assoc()) {
-                echo '<option value="' . htmlspecialchars($srv['service_name']) . '">' . htmlspecialchars($srv['service_name']) . '</option>';
+                echo '<option value="' . htmlspecialchars($srv['s_id']) . '">' . htmlspecialchars($srv['service_name']) . '</option>';
             }
         } else {
             echo '<option value="">No services found</option>';
