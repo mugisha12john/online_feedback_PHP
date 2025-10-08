@@ -71,11 +71,11 @@
             <h2 class="text-blue-700 font-semibold mb-4">All category</h2>
             <div class="overflow-x-auto">
                 <section id="add-category-form" class="hidden ">
-                    <div  className=" bg-white rounded-lg shadow-lg w-full max-w-4xl p-4 sm:p-6 relative flex flex-col md:flex-row overflow-y-auto max-h-[90vh]">
+                    <div  className=" bg-white rounded-lg shadow-lg w-full max-w-2xl p-4 sm:p-6 relative flex flex-col md:flex-row overflow-y-auto max-h-[90vh]">
     <h2 class="text-2xl font-bold text-center text-blue-700 mt-2 mb-6 w-full">
             Add New Category
         </h2>
-        <form  method="POST" class="space-y-4 max-w-2xl mx-auto mb-6">
+        <form  method="POST" class="space-y-4 max-w-xl mx-auto mb-6">
         <div>
           <label class="block text-sm font-medium text-gray-700"
             >Category Name</label
@@ -162,3 +162,19 @@
     </script>
 </body>
 </html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include '../db_connection/conn.php';
+    $category_name = $_POST['category_name'];
+    $company_name = $_POST['company_name'];
+    $stmt = $conn->prepare("INSERT INTO categories (category_name, company_name) VALUES (?, ?)");
+    $stmt->bind_param("ss", $category_name, $company_name);
+    if ($stmt->execute()) {
+        echo "<script>alert('Category added successfully'); window.location.href='add_category.php';</script>";
+    } else {
+        echo "<script>alert('Error adding category');</script>";
+    }
+    $stmt->close();
+    $conn->close();
+}
+?>
