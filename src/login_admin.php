@@ -63,6 +63,12 @@
         >
          Admin Login
         </button>
+          <p class="text-center text-gray-600 text-sm mt-4">
+        Don't have an admin account?
+        <a href="signup_admin.php" class="text-blue-600 font-medium hover:underline">
+            Create Account
+        </a>
+      </p>
       </form>
 
   
