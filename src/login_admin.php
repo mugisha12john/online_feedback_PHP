@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FeedUs | Login</title>
+    <title>FeedUs |Admin Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
@@ -32,7 +32,7 @@
 
       <!-- Form -->
       <h2 class="text-2xl font-bold text-center text-blue-700 mt-8 mb-6">
-        Welcome Back! Please Login to give your Opinion
+        Welcome Admin! Please Login to share the services
       </h2>
 
       <form  method="POST" class="space-y-4">
@@ -61,33 +61,12 @@
           type="submit"
           class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
         >
-          Login
+         Admin Login
         </button>
       </form>
-      <hr class="my-6 border-1 border-blue-600" />
-      <a href="login_admin.php">
-                <button
-          type="submit"
-          class="w-full border-2 border-blue-600 text-blue-600 hover:text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
-        >
-          Login as Admin
-        </button>
-      </a>
-      <p class="text-center text-gray-600 text-sm mt-4">
-        Don't have an account?
-        <a href="signup.php" class="text-blue-600 font-medium hover:underline">
-          Sign in
-        </a>
-      </p>
-      <p class="text-center text-gray-600 text-sm mt-4">
-        Forgot your password?
-        <a
-          href="reset_password.php"
-          class="text-blue-600 font-medium hover:underline"
-        >
-          Reset here
-        </a>
-      </p>
+
+  
+
     </div>
   </body>
 </html>
@@ -98,19 +77,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $query = "SELECT * FROM users WHERE email='$email'";
+    $query = "SELECT * FROM admins WHERE email='$email'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
-            echo "<script>alert('Login successful!'); window.location.href='user_home.php';</script>";
+            echo "<script>alert('Login successful!'); window.location.href='admin_home.php';</script>";
         } else {
             echo "<script>alert('Invalid password. Please try again.');</script>";
         }
     } else {
-        echo "<script>alert('No user found with this email.');</script>";
+        echo "<script>alert('No admin found with this email.');</script>";
     }
 
     $conn->close();
