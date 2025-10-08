@@ -20,8 +20,8 @@ if (!isset($_SESSION['email'])) {
         <h1 class="text-2xl font-bold mb-10 text-center">FeedUs</h1>
 
         <nav class="space-y-4">
-          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🗣️ <span>Share Opinion</span></a>
-          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">📜 <span>Review</span></a>
+          <a href="user_home.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-500 p-2 rounded transition bg-blue-600">🗣️ <span>Share Opinion</span></a>
+          <a href="review_user.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">📜 <span>Review</span></a>
           <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
         </nav>
       </div>
