@@ -135,10 +135,10 @@ if (!isset($_SESSION['email'])) {
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_feedback'])) {
     include '../db_connection/conn.php';
-    $email = $_SESSION['email'];
+
     $category = $_POST['category'];
     $service = $_POST['service'];
-    $description = $_POST['description'];
+ 
    
     $userResult = $conn->query("SELECT CONCAT(firstname,' ',lastname) as name FROM users WHERE email='$email'");
 
@@ -153,3 +153,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_feedback'])) {
   
     $conn->close();
 }
+?>
