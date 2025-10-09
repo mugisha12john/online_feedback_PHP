@@ -10,26 +10,26 @@
     <!-- Navbar -->
     <nav class="flex items-center justify-between px-6 py-4 bg-white shadow-md">
       <!-- Left: Logo -->
-      <div class="text-2xl font-bold text-blue-600">FeedUs</div>
+      <div class="text-2xl font-bold text-orange-600">FeedUs</div>
 
       <!-- Center: Links -->
       <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
-        <a href="#about" class="hover:text-blue-600">About Us</a>
-        <a href="#contact" class="hover:text-blue-600">Contact Us</a>
-        <a href="#contributors" class="hover:text-blue-600">Contributors</a>
+        <a href="#about" class="hover:text-orange-600">About Us</a>
+        <a href="#contact" class="hover:text-orange-600">Contact Us</a>
+        <a href="#contributors" class="hover:text-orange-600">Contributors</a>
       </div>
 
       <!-- Right: Buttons -->
       <div class="space-x-4">
         <a
           href="login.php"
-          class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+          class="bg-orange-600 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition"
         >
           Login
         </a>
         <a
           href="signup.php"
-          class="border border-blue-600 text-blue-600 px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white transition"
+          class="border border-orange-600 text-orange-600 px-4 py-2 rounded-full hover:bg-orange-600 hover:text-white transition"
         >
           Sign Up
         </a>
@@ -41,16 +41,16 @@
       class="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-16"
     >
       <div class="max-w-lg">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-blue-700">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-orange-700">
           Your Voice, Our Progress!
         </h1>
         <p class="text-gray-600 mb-6">
           FeedUs helps Rwandan companies understand your experiences. Share
-          feedback on services — good or bad — and help improve the nation’s
+          feedback on services good or bad  and help improve the nation’s
           service quality.
         </p>
         <button
-          class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
+          class="bg-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-700 transition"
         >
           Get Started
         </button>
@@ -66,8 +66,8 @@
     </section>
 
     <!-- About Us -->
-    <section id="about" class="px-6 md:px-16 py-16 bg-blue-50">
-      <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
+    <section id="about" class="px-6 md:px-16 py-16 bg-orange-50">
+      <h2 class="text-3xl font-bold text-center text-orange-700 mb-6">
         About Us
       </h2>
       <p class="max-w-3xl mx-auto text-center text-gray-700">
@@ -79,7 +79,7 @@
 
     <!-- Contributors / Testimonies -->
     <section id="contributors" class="px-6 md:px-16 py-16">
-      <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">
+      <h2 class="text-3xl font-bold text-center text-orange-700 mb-10">
         Contributors
       </h2>
 
@@ -90,7 +90,7 @@
             "FeedUs helped us receive real feedback from our customers faster
             than ever."
           </p>
-          <h3 class="mt-4 font-semibold text-blue-600">MTN Rwanda</h3>
+          <h3 class="mt-4 font-semibold text-orange-600">MTN Rwanda</h3>
         </div>
 
         <!-- Card 2 -->
@@ -98,7 +98,7 @@
           <p class="italic text-gray-600">
             "As a user, I love how easy it is to report good and bad services."
           </p>
-          <h3 class="mt-4 font-semibold text-blue-600">Aline U.</h3>
+          <h3 class="mt-4 font-semibold text-orange-600">Aline U.</h3>
         </div>
 
         <!-- Card 3 -->
@@ -107,14 +107,14 @@
             "FeedUs creates a bridge between companies and the people they
             serve."
           </p>
-          <h3 class="mt-4 font-semibold text-blue-600">Bank of Kigali</h3>
+          <h3 class="mt-4 font-semibold text-orange-600">Bank of Kigali</h3>
         </div>
       </div>
     </section>
 
     <!-- Contact Us -->
-    <section id="contact" class="px-6 md:px-16 py-16 bg-blue-50">
-      <h2 class="text-3xl font-bold text-center text-blue-700 mb-6">
+    <section id="contact" class="px-6 md:px-16 py-16 bg-orange-50">
+      <h2 class="text-3xl font-bold text-center text-orange-700 mb-6">
         Contact Us
       </h2>
       <div class="text-center text-gray-700">
@@ -125,14 +125,14 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="px-6 md:px-16 py-16 text-center bg-blue-600 text-white">
+    <section class="px-6 md:px-16 py-16 text-center bg-orange-600 text-white">
       <h2 class="text-3xl font-bold mb-4">FeedUs Now!</h2>
       <p class="mb-6">
         Whether you faced an issue or received amazing service, let us know and
         make Rwanda better.
       </p>
       <button
-        class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition"
+        class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-orange-100 transition"
       >
         Give Feedback
       </button>
@@ -149,12 +149,12 @@
         <div>
           <h3 class="text-white font-bold mb-4">Quick Links</h3>
           <ul class="space-y-2">
-            <li><a href="#about" class="hover:text-blue-400">About Us</a></li>
+            <li><a href="#about" class="hover:text-orange-400">About Us</a></li>
             <li>
-              <a href="#contact" class="hover:text-blue-400">Contact Us</a>
+              <a href="#contact" class="hover:text-orange-400">Contact Us</a>
             </li>
             <li>
-              <a href="#contributors" class="hover:text-blue-400"
+              <a href="#contributors" class="hover:text-orange-400"
                 >Contributors</a
               >
             </li>
@@ -171,9 +171,9 @@
         <div>
           <h3 class="text-white font-bold mb-4">Follow Us</h3>
           <div class="flex space-x-4">
-            <a href="#" class="hover:text-blue-400">Facebook</a>
-            <a href="#" class="hover:text-blue-400">Twitter</a>
-            <a href="#" class="hover:text-blue-400">Instagram</a>
+            <a href="#" class="hover:text-orange-400">Facebook</a>
+            <a href="#" class="hover:text-orange-400">Twitter</a>
+            <a href="#" class="hover:text-orange-400">Instagram</a>
           </div>
         </div>
       </div>
