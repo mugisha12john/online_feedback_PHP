@@ -15,29 +15,29 @@ if (!isset($_SESSION['email'])) {
   </head>
   <body class="bg-gray-50 min-h-screen flex font-sans">
     <!-- Sidebar -->
-    <aside class="bg-blue-700 text-white w-64 flex flex-col justify-between p-6">
+    <aside class="bg-orange-700 text-white w-64 flex flex-col justify-between p-6">
       <div>
         <h1 class="text-2xl font-bold mb-10 text-center">FeedUs</h1>
 
         <nav class="space-y-4">
-          <a href="user_home.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🗣️ <span>Share Opinion</span></a>
-          <a href="review_user.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-500 p-2 rounded transition bg-blue-600">📜 <span>Review</span></a>
-          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
+          <a href="user_home.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">🗣️ <span>Share Opinion</span></a>
+          <a href="review_user.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-500 p-2 rounded transition bg-orange-600">📜 <span>Review</span></a>
+          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
         </nav>
       </div>
 
       <div>
-        <a href="logout.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🚪 <span>Logout</span></a>
+        <a href="logout.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">🚪 <span>Logout</span></a>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-8 md:p-12 ">
-      <h2 class="text-3xl font-bold text-blue-700 mb-6">All Feedback You Shared</h2>
+      <h2 class="text-3xl font-bold text-orange-700 mb-6">All Feedback You Shared</h2>
         <div class="bg-white p-6 rounded-2xl shadow-md max-w-6xl">
            <table class="min-w-full border border-gray-300">
             <thead>
-              <tr class="bg-blue-100">
+              <tr class="bg-orange-100">
                 <th class="border border-gray-300 px-4 py-2 text-left">Feedback ID</th>
                 <th class="border border-gray-300 px-4 py-2 text-left">Company name</th>
                 <th class="border border-gray-300 px-4 py-2 text-left">Category</th>

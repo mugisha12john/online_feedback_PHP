@@ -13,16 +13,16 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
     <title>Admin Service</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-blue-100 h-screen flex flex-col md:flex-row">
+<body class="bg-orange-100 h-screen flex flex-col md:flex-row">
 
 
-    <aside class="bg-blue-800 text-white w-64 flex-shrink-0 hidden md:flex flex-col">
-        <div class="p-6 text-2xl font-bold border-b border-blue-700">Admin Panel</div>
+    <aside class="bg-orange-800 text-white w-64 flex-shrink-0 hidden md:flex flex-col">
+        <div class="p-6 text-2xl font-bold border-b border-orange-700">Admin Panel</div>
         <nav class="flex-1 flex flex-col mt-6">
-            <a href="admin_home.php" class="px-6 py-3 hover:bg-blue-700">Dashboard</a>
-            <a href="add_category.php" class="px-6 py-3 hover:bg-blue-700">Add Category</a>
-            <a href="add_service.php" class="px-6 py-3 hover:bg-blue-700">Add Service</a>
-            <a href="report.php" class="block px-6 py-3 hover:bg-blue-500 bg-blue-600 ">Report</a>
+            <a href="admin_home.php" class="px-6 py-3 hover:bg-orange-700">Dashboard</a>
+            <a href="add_category.php" class="px-6 py-3 hover:bg-orange-700">Add Category</a>
+            <a href="add_service.php" class="px-6 py-3 hover:bg-orange-700">Add Service</a>
+            <a href="report.php" class="block px-6 py-3 hover:bg-orange-500 bg-orange-600 ">Report</a>
             <div class="mt-auto px-6 py-3">
                 <a href="logout_admin.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
             </div>
@@ -30,17 +30,17 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
     </aside>
 
 
-    <header class="md:hidden bg-blue-800 text-white flex justify-between items-center p-4">
+    <header class="md:hidden bg-orange-800 text-white flex justify-between items-center p-4">
         <div class="font-bold text-lg">Admin Panel</div>
         <button id="mobileMenuBtn" class="focus:outline-none">☰</button>
     </header>
 
     <!-- Dropdown sidebar for small screens -->
-    <div id="mobileSidebar" class="absolute top-16 left-0 w-full bg-blue-800 text-white flex-col hidden md:hidden z-50">
-        <a href="admin_home.php" class="block px-6 py-3 hover:bg-blue-700">Dashboard</a>
-         <a href="add_category.php" class="block px-6 py-3 hover:bg-blue-700">Add Category</a>
-        <a href="add_service.php" class="block px-6 py-3 hover:bg-blue-700">Add Service</a>
-        <a href="report.php" class="block px-6 py-3 hover:bg-blue-500 bg-blue-600 ">Report</a>
+    <div id="mobileSidebar" class="absolute top-16 left-0 w-full bg-orange-800 text-white flex-col hidden md:hidden z-50">
+        <a href="admin_home.php" class="block px-6 py-3 hover:bg-orange-700">Dashboard</a>
+         <a href="add_category.php" class="block px-6 py-3 hover:bg-orange-700">Add Category</a>
+        <a href="add_service.php" class="block px-6 py-3 hover:bg-orange-700">Add Service</a>
+        <a href="report.php" class="block px-6 py-3 hover:bg-orange-500 bg-orange-600 ">Report</a>
         <div class="px-6 py-3">
             <a href="logout_admin.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
         </div>
@@ -48,8 +48,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
     <main class="flex-1 p-6 md:ml-0">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
             <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-blue-600 font-semibold mb-2">Total Category</h2>
-                <p class="text-2xl font-bold text-blue-800">
+                <h2 class="text-orange-600 font-semibold mb-2">Total Category</h2>
+                <p class="text-2xl font-bold text-orange-800">
                      <?php
                         include '../db_connection/conn.php';
                         $result = $conn->query("SELECT COUNT(*) as total FROM categories    ");
@@ -60,8 +60,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                 </p>
             </div>
             <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-blue-600 font-semibold mb-2">Total Serives</h2>
-                <p class="text-2xl font-bold text-blue-800">
+                <h2 class="text-orange-600 font-semibold mb-2">Total Serives</h2>
+                <p class="text-2xl font-bold text-orange-800">
                         <?php
                         include '../db_connection/conn.php';
                         $result = $conn->query("SELECT COUNT(*) as total FROM services");
@@ -72,8 +72,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                 </p>
             </div>
              <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-blue-600 font-semibold mb-2">Total Feedback</h2>
-                <p class="text-2xl font-bold text-blue-800">
+                <h2 class="text-orange-600 font-semibold mb-2">Total Feedback</h2>
+                <p class="text-2xl font-bold text-orange-800">
                         <?php
                         include '../db_connection/conn.php';
                         $result = $conn->query("SELECT COUNT(*) as total FROM feedback_users");
@@ -85,8 +85,8 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
             </div>
 
              <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-blue-600 font-semibold mb-2">Total Users</h2>
-                <p class="text-2xl font-bold text-blue-800">
+                <h2 class="text-orange-600 font-semibold mb-2">Total Users</h2>
+                <p class="text-2xl font-bold text-orange-800">
                         <?php
                         include '../db_connection/conn.php';
                         $result = $conn->query("SELECT COUNT(*) as total FROM users");
@@ -98,19 +98,19 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
             </div>
 
         </div>
-                    <table id="category-table" class="min-w-full divide-y divide-blue-200">
-                    <thead class="bg-blue-50">
+                    <table id="category-table" class="min-w-full divide-y divide-orange-200">
+                    <thead class="bg-orange-50">
                         <tr>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">#</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Username</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Email</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Company name</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Service Name</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Feedback</th>
-                            <th class="px-4 py-2 text-left text-sm font-medium text-blue-500">Created At</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">#</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Username</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Email</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Company name</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Service Name</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Feedback</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Created At</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-blue-200">
+                    <tbody class="bg-white divide-y divide-orange-200">
                          <?php
                             include '../db_connection/conn.php';
                             $id=0;

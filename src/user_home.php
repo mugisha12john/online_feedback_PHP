@@ -15,25 +15,25 @@ if (!isset($_SESSION['email'])) {
   </head>
   <body class="bg-gray-50 min-h-screen flex font-sans">
     <!-- Sidebar -->
-    <aside class="bg-blue-700 text-white w-64 flex flex-col justify-between p-6">
+    <aside class="bg-orange-700 text-white w-64 flex flex-col justify-between p-6">
       <div>
         <h1 class="text-2xl font-bold mb-10 text-center">FeedUs</h1>
 
         <nav class="space-y-4">
-          <a href="user_home.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-500 p-2 rounded transition bg-blue-600">🗣️ <span>Share Opinion</span></a>
-          <a href="review_user.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">📜 <span>Review</span></a>
-          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
+          <a href="user_home.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-500 p-2 rounded transition bg-orange-600">🗣️ <span>Share Opinion</span></a>
+          <a href="review_user.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">📜 <span>Review</span></a>
+          <a href="#" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">⚙️ <span>Settings</span></a>
         </nav>
       </div>
 
       <div>
-        <a href="logout.php" class="flex items-center gap-3 text-lg font-medium hover:bg-blue-600 p-2 rounded transition">🚪 <span>Logout</span></a>
+        <a href="logout.php" class="flex items-center gap-3 text-lg font-medium hover:bg-orange-600 p-2 rounded transition">🚪 <span>Logout</span></a>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-8 md:p-12">
-      <h2 class="text-3xl font-bold text-blue-700 mb-6">Share Your Feedback</h2>
+      <h2 class="text-3xl font-bold text-orange-700 mb-6">Share Your Feedback</h2>
 
       <form method="POST" class="bg-white p-6 rounded-2xl shadow-md max-w-2xl">
         <?php include '../db_connection/conn.php'; ?>
@@ -41,7 +41,7 @@ if (!isset($_SESSION['email'])) {
         <!-- Category Dropdown -->
         <div class="mb-4">
           <label class="block text-gray-700 font-medium mb-1">Category</label>
-          <select id="category" name="category" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select id="category" name="category" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
             <option value="">Select Category</option>
             <?php
             $selectCategories = "SELECT DISTINCT(category_name) FROM categories";
@@ -58,13 +58,13 @@ if (!isset($_SESSION['email'])) {
         <!-- Service Dropdown -->
         <div class="mb-4">
           <label class="block text-gray-700 font-medium mb-1">Service</label>
-          <select id="service" name="service" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <select id="service" name="service" required class="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
             <option value="">Select category first</option>
           </select>
 
           <!-- Loading spinner -->
-          <div id="loading" class="hidden text-blue-600 text-sm mt-2 flex items-center gap-2">
-            <svg class="animate-spin h-5 w-5 text-blue-600" viewBox="0 0 24 24">
+          <div id="loading" class="hidden text-orange-600 text-sm mt-2 flex items-center gap-2">
+            <svg class="animate-spin h-5 w-5 text-orange-600" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"></path>
             </svg>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['email'])) {
             rows="5"
             required
             placeholder="Write your feedback here (max 200 words)"
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
           ></textarea>
           <p class="text-sm text-gray-500 mt-1">Max: 200 words</p>
         </div>
@@ -90,7 +90,7 @@ if (!isset($_SESSION['email'])) {
         <button
           type="submit"
           name="submit_feedback"
-          class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+          class="w-full bg-orange-600 text-white py-2 rounded-lg font-semibold hover:bg-orange-700 transition"
         >
           Send Feedback
         </button>

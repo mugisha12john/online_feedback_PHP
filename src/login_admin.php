@@ -7,12 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
-    class="bg-blue-50 flex items-center justify-center min-h-screen font-sans"
+    class="bg-orange-50 flex items-center justify-center min-h-screen font-sans"
   >
     <div class="bg-white shadow-lg rounded-2xl w-full max-w-md p-8 relative">
       <!-- Legend-style icon -->
       <div
-        class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-full p-4 shadow-lg"
+        class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white rounded-full p-4 shadow-lg"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
       </div>
 
       <!-- Form -->
-      <h2 class="text-2xl font-bold text-center text-blue-700 mt-8 mb-6">
+      <h2 class="text-2xl font-bold text-center text-orange-700 mt-8 mb-6">
         Welcome Admin! Please Login to share the services
       </h2>
 
@@ -42,7 +42,7 @@
             type="email"
             name="email"
             required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div>
@@ -53,19 +53,19 @@
             type="password"
             name="password"
             required
-            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
 
         <button
           type="submit"
-          class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+          class="w-full bg-orange-600 text-white py-2 rounded-lg font-semibold hover:bg-orange-700 transition"
         >
          Admin Login
         </button>
           <p class="text-center text-gray-600 text-sm mt-4">
         Don't have an admin account?
-        <a href="signup_admin.php" class="text-blue-600 font-medium hover:underline">
+        <a href="signup_admin.php" class="text-orange-600 font-medium hover:underline">
             Create Account
         </a>
       </p>
