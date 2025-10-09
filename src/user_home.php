@@ -138,7 +138,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_feedback'])) {
 
     $category = $_POST['category'];
     $service = $_POST['service'];
- 
+    $email = $_SESSION['email'];
+    $description = trim($_POST['description']);
    
     $userResult = $conn->query("SELECT CONCAT(firstname,' ',lastname) as name FROM users WHERE email='$email'");
 
