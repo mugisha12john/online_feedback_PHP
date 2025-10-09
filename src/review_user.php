@@ -51,7 +51,7 @@ if (!isset($_SESSION['email'])) {
             include '../db_connection/conn.php';
             $email = $_SESSION['email'];
             $id = 0;
-            $query = $conn->query("SELECT f.f_id AS feedback_id, f.description, f.createdAt, s.s_id AS service_id, s.service_name, c.category_name,c.company_name FROM feedback_users f INNER JOIN users u ON f.email = u.email INNER JOIN services s ON f.service_id = s.s_id INNER JOIN categories c ON s.category_id = c.c_id WHERE u.email = '$email' ORDER BY f.createdAt DESC");
+            $query = $conn->query("SELECT f.f_id AS feedback_id, f.description, f.createdAt, s.s_id AS service_id, s.service_name, c.category_name,c.company_name FROM feedback_users f INNER JOIN users u ON f.email = u.email INNER JOIN services s ON f.service_id = s.s_id INNER JOIN categories c ON s.category_id = c.c_id  ORDER BY f.createdAt DESC LIMIT 9");
             if ($query->num_rows > 0) {
                 while ($row = $query->fetch_assoc()) {
                   $id +=1;
