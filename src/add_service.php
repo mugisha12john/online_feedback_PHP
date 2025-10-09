@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
+    echo "<script>alert('Please log in to access the admin dashboard.'); window.location.href='login.php';</script>";
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +24,7 @@
             <a href="add_service.php" class="px-6 py-3 hover:bg-blue-500 bg-blue-600">Add Service</a>
             <a href="report.php" class="block px-6 py-3 hover:bg-blue-700"">Report</a>
             <div class="mt-auto px-6 py-3">
-                <a href="logout.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
+                <a href="Logout_admin.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
             </div>
         </nav>
     </aside>
@@ -35,7 +42,7 @@
         <a href="add_service.php" class="block px-6 py-3 hover:bg-blue-500 bg-blue-600">Add Service</a>
         <a href="report.php" class="block px-6 py-3 hover:bg-blue-700">Report</a>
         <div class="px-6 py-3">
-            <a href="logout.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
+            <a href="Logout_admin.php" class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded">Logout</a>
         </div>
     </div>
     <main class="flex-1 p-6 md:ml-0">

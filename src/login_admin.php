@@ -90,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password'])) {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
+            $_SESSION['role'] = 'admin';
             echo "<script>alert('Login successful!'); window.location.href='admin_home.php';</script>";
         } else {
             echo "<script>alert('Invalid password. Please try again.');</script>";
