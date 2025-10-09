@@ -1,0 +1,58 @@
+# 📨 FeedUs — Feedback Management System
+
+FeedUs is a simple PHP + MySQL application that allows users to submit feedback on different services, and administrators to manage categories, services, and view user feedbacks.
+
+---
+
+## 🚀 Features
+
+### 👥 User Side
+
+- Register and login securely
+- Submit feedback for available services
+- View own feedback history
+
+### 🧑‍💼 Admin Side
+
+- Dashboard overview (Total users & Total feedbacks)
+- Add new categories and services
+- View all feedbacks from users
+- Responsive dashboard built with **TailwindCSS**
+
+---
+
+## 🏗️ Tech Stack
+
+Frontend HTML, TailwindCSS
+Backend PHP (Procedural)
+Database MySQL / MariaDB
+Server Apache / XAMPP 
+
+---
+
+## 📸 Screenshots
+
+### 🖥️ Admin Dashboard
+
+![Admin Dashboard Screenshot](screenshots/admin_dashboard.png)
+
+### 🗂️ Add Category
+
+![Add Category Screenshot](screenshots/add_category.png)
+
+### 📝 User Share feedback
+
+![User Feedback Screenshot](screenshots/share_feedback.png)
+
+### 📝 User Feedback Page
+
+![User Feedback Screenshot](screenshots/user_feedback.png)
+
+---
+
+## ⚙️ Installation
+
+1. Clone this repository or download the ZIP:
+   ```bash
+   git clone https://github.com/your-username/feedus.git
+   ```
