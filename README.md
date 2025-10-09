@@ -38,11 +38,11 @@ Server Apache / XAMPP
 
 ### 🗂️ Add Category
 
-![Add Category Screenshot](screenshots/add_category.png)
+![Add Category](screenshots/add_category.png)
 
 ### 📝 User Share feedback
 
-![User Feedback Screenshot](screenshots/share_feedback.png)
+![User Feedback](screenshots/user_feedback.png)
 
 ### 📝 User Feedback Page
 
