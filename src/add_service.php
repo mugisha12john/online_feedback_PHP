@@ -133,13 +133,14 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Company name</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Service Name</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Created At</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-orange-200">
                          <?php
                             include '../db_connection/conn.php';
                             $id=0;
-                            $sql = "SELECT s.service_name,s.createdAt,c.company_name FROM `services` s INNER JOIN categories c on c.c_id =s.category_id  ORDER BY s.createdAt DESC LIMIT 8";
+                            $sql = "SELECT s.s_id,s.service_name,s.createdAt,c.company_name FROM `services` s INNER JOIN categories c on c.c_id =s.category_id  ORDER BY s.createdAt DESC LIMIT 8";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()) {
                                 $id +=1;
@@ -148,6 +149,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                                     <td class='px-4 py-2'>{$row['company_name']}</td>
                                     <td class='px-4 py-2'>{$row['service_name']}</td>
                                     <td class='px-4 py-2'>{$row['createdAt']}</td>
+                                     <td class='px-4 py-2'>
+                                        <a href='edit_service.php?id={$row['s_id']}' class='text-blue-600 hover:underline mr-2'>Edit</a>
+                                        <a href='delete_service.php?id={$row['s_id']}' class='text-red-600 hover:underline' onclick=\"return confirm('Are you sure you want to delete this service?');\">Delete</a>
+                                    </td>
                                 </tr>";
                             }
                             
