@@ -70,19 +70,12 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
             >Category</label
           >
           <?php
-          echo '<input type="text" name="category_name" value="' . htmlspecialchars($row['category_name']) . '" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4"/>';
+          echo '<input disabled type="text" name="category_name" value="' . htmlspecialchars($row['category_name']) . '" required class="w-full border bg-gray-200 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4"/>';
           
           ?>
         </div>
-         <div class="mt-4 mb-4">
-          <label class="  font-medium text-gray-700"
-            >Company Name</label
-          >
-        <?php
-        echo '<input type="text" name="company_name" value="' . htmlspecialchars($row['company_name']) . '" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4"/>';
-        ?>
-        </div>
-        <div class="mt-4 mb-4">
+
+                <div class="mt-4 mb-4">
           <label class="  font-medium text-gray-700"
             >Service Name</label
           >
@@ -91,6 +84,22 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
         }
           ?>
         </div>
+         <div class="mt-4 mb-4">
+          <label class="  font-medium text-gray-700"
+            >Company Name</label
+          >
+          <select name="company" required class="w-full border border-gray-300 rounded  
+        px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 mb-4">
+        <?php
+                            $sql = "SELECT * FROM categories";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . htmlspecialchars($row['c_id']) . '">' . htmlspecialchars($row['company_name']) . '</option>';
+        }
+        ?>
+        </select>
+        </div>
+
         
        
 
@@ -124,14 +133,15 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../db_connection/conn.php';
     if (isset($_POST['submit_service'])) {
-        $company_name = $_POST['company'];
+        $company_id = $_POST['company'];
+        $id = $_GET['id']; 
         $service_name = $_POST['service_name'];
-            $stmt = $conn->query("INSERT INTO services (service_name, category_id) VALUES ('$service_name', '$company_name')");
+            $stmt = $conn->query("UPDATE  services  SET service_name='$service_name' WHERE s_id='$id'");
 
             if ($stmt) {
-                echo "<script>alert('Service added successfully'); window.location.href='add_service.php';</script>";
+                echo "<script>alert('Service updated successfully'); window.location.href='add_service.php';</script>";
             } else {
-                echo "<script>alert('Error adding service'); window.location.href='add_service.php';</script>";
+                echo "<script>alert('Error updating service'); window.location.href='add_service.php';</script>";
             }
             $stmt->close();
  
