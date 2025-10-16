@@ -126,6 +126,7 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Company name</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Category</th>
                             <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Created At</th>
+                            <th class="px-4 py-2 text-left text-sm font-medium text-orange-500">Modify</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-orange-200">
@@ -141,6 +142,10 @@ if (!isset($_SESSION['email']) || $_SESSION['role'] !== 'admin') {
                                     <td class='px-4 py-2'>{$row['company_name']}</td>
                                     <td class='px-4 py-2'>{$row['category_name']}</td>
                                     <td class='px-4 py-2'>{$row['createdAt']}</td>
+                                    <td class='px-4 py-2'>
+                                        <a href='edit_category.php?id={$row['c_id']}' class='text-blue-600 hover:underline mr-2'>Edit</a>
+                                        <a href='delete_category.php?id={$row['c_id']}' class='text-red-600 hover:underline' onclick=\"return confirm('Are you sure you want to delete this category?');\">Delete</a>
+                                    </td>
                                 </tr>";
                             }
                             
